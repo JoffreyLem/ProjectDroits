@@ -1,28 +1,44 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
+import eslintPluginReact from "eslint-plugin-react";
+import eslintPluginReactHooks from "eslint-plugin-react-hooks";
+import eslintPluginReactRefresh from "eslint-plugin-react-refresh";
+import eslintPluginPrettier from "eslint-plugin-prettier";
+import eslintPluginTS from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import prettierConfig from "eslint-config-prettier";
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default [
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx,js,jsx}"], // Cible tous les fichiers JS/TS
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parser: tsParser,
+      ecmaVersion: "latest",
+      sourceType: "module"
     },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      react: eslintPluginReact,
+      "react-hooks": eslintPluginReactHooks,
+      "react-refresh": eslintPluginReactRefresh,
+      "@typescript-eslint": eslintPluginTS,
+      prettier: eslintPluginPrettier
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      "prettier/prettier": "error", // Erreur si le formatage Prettier n'est pas respecté
+      "react/react-in-jsx-scope": "off", // Plus nécessaire avec React 17+
+      "react-hooks/rules-of-hooks": "error", // Vérifie l'usage correct des Hooks
+      "react-hooks/exhaustive-deps": "warn", // Avertit sur les dépendances des Hooks
+      "react-refresh/only-export-components": "warn", // Assure le bon fonctionnement de React Fast Refresh
+      "@typescript-eslint/explicit-module-boundary-types": "off" // Désactive l'obligation de typer les retours de fonctions
     },
-  },
-)
+    settings: {
+      react: {
+        version: "detect" // Détecte automatiquement la version de React
+      }
+    },
+    extends: [
+      eslintPluginReact.configs.recommended, // Règles recommandées pour React
+      eslintPluginReactHooks.configs.recommended, // Règles recommandées pour les Hooks
+      eslintPluginTS.configs.recommended, // Règles TypeScript
+      prettierConfig // Désactive les règles ESLint qui pourraient entrer en conflit avec Prettier
+    ]
+  }
+];
