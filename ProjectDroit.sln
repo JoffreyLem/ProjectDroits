@@ -7,6 +7,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectDroit.Server", "Proj
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "projectdroit.client", "projectdroit.client\projectdroit.client.esproj", "{39269DA9-1EC8-4B93-8ADB-36DFB6F49578}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{84D4B4CD-2C48-4DC7-8B47-6FB7C25DCB62}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.dev.yml = docker-compose.dev.yml
+		docker-compose.yml = docker-compose.yml
+		.gitlab-ci.yml = .gitlab-ci.yml
+		Modelfile = Modelfile
+		ollama-entrypoint.sh = ollama-entrypoint.sh
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectDroit.Infrastructure", "ProjectDroit.Infrastructure\ProjectDroit.Infrastructure.csproj", "{8B5711C6-5411-40D7-B83E-827E279A822B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectDroit.Core", "ProjectDroit.Core\ProjectDroit.Core.csproj", "{DF75A600-E70E-420F-9D92-69ADC817E47C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectDroit.Domain", "ProjectDroit.Domain\ProjectDroit.Domain.csproj", "{432F9490-354C-463E-AC7A-D424100BF10C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +38,18 @@ Global
 		{39269DA9-1EC8-4B93-8ADB-36DFB6F49578}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39269DA9-1EC8-4B93-8ADB-36DFB6F49578}.Release|Any CPU.Build.0 = Release|Any CPU
 		{39269DA9-1EC8-4B93-8ADB-36DFB6F49578}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8B5711C6-5411-40D7-B83E-827E279A822B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5711C6-5411-40D7-B83E-827E279A822B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5711C6-5411-40D7-B83E-827E279A822B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5711C6-5411-40D7-B83E-827E279A822B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF75A600-E70E-420F-9D92-69ADC817E47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF75A600-E70E-420F-9D92-69ADC817E47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF75A600-E70E-420F-9D92-69ADC817E47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF75A600-E70E-420F-9D92-69ADC817E47C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{432F9490-354C-463E-AC7A-D424100BF10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432F9490-354C-463E-AC7A-D424100BF10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432F9490-354C-463E-AC7A-D424100BF10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432F9490-354C-463E-AC7A-D424100BF10C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
